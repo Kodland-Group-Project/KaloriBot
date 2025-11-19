@@ -1,2 +1,2 @@
 # KaloriBot
-Kalorilerinizi sayın, günlerinizi saymayın!
+## Kalorilerinizi sayın, günlerinizi saymayın!
