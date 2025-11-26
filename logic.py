@@ -12,7 +12,7 @@ class DBManager:
         return result[0] if result else None
     
     def create_table(self):
-        self.cursor.execute("CREATE TABLE IF NOT EXISTS user(userid INTEGER PRIMARY KEY, username TEXT, age INTEGER, height INTEGER, weight INTEGER, gender INTEGER, aim_of_calories INTEGER DEFAULT 0, totol_calories INTEGER DEFAULT 0)")
+        self.cursor.execute("CREATE TABLE IF NOT EXISTS user(userid INTEGER PRIMARY KEY, username TEXT, age INTEGER, height INTEGER, weight INTEGER, gender INTEGER, aim_of_calories INTEGER DEFAULT 0, total_calories INTEGER DEFAULT 0)")
 
     def add_user(self, userid, username, age=None, height=None, weight=None, gender=None):
         self.cursor.execute("INSERT INTO user (userid, username, age, height, weight) VALUES (?, ?, ?, ?, ?, ?)", (userid, username, age, height, weight, gender))
