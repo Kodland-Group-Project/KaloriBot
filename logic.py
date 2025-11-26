@@ -19,15 +19,15 @@ class DBManager:
         self.connection.commit()
 
     def set_calories(self, userid, calories):
-        self.cursor.execute("UPDATE user SET aim_calories = ? WHERE userid = ?", (calories, userid))
+        self.cursor.execute("UPDATE user SET aim_of_calories = ? WHERE userid = ?", (calories, userid))
         self.connection.commit()
 
     def add_calories(self, userid, calories):
-        self.cursor.execute("UPDATE user SET totol_calories = totol_calories + ? WHERE userid = ?", (calories, userid))
+        self.cursor.execute("UPDATE user SET total_calories = total_calories + ? WHERE userid = ?", (calories, userid))
         self.connection.commit()
 
     def get_calories(self, userid):
-        self.cursor.execute("SELECT totol_calories FROM user WHERE userid = ?", (userid,))
+        self.cursor.execute("SELECT total_calories FROM user WHERE userid = ?", (userid,))
         result = self.cursor.fetchone()
         return result[0] if result else None
     
