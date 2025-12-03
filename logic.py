@@ -15,7 +15,7 @@ class DBManager:
         self.cursor.execute("CREATE TABLE IF NOT EXISTS user(userid INTEGER PRIMARY KEY, username TEXT, age INTEGER, height INTEGER, weight INTEGER, gender INTEGER, aim_of_calories INTEGER DEFAULT 0, total_calories INTEGER DEFAULT 0)")
 
     def add_user(self, userid, username, age=None, height=None, weight=None, gender=None):
-        self.cursor.execute("INSERT INTO user (userid, username, age, height, weight) VALUES (?, ?, ?, ?, ?, ?)", (userid, username, age, height, weight, gender))
+        self.cursor.execute("INSERT INTO user (userid, username, age, height, weight, gender) VALUES (?, ?, ?, ?, ?, ?)", (userid, username, age, height, weight, gender))
         self.connection.commit()
 
     def set_calories(self, userid, calories):
@@ -27,7 +27,7 @@ class DBManager:
         self.connection.commit()
 
     def get_calories(self, userid):
-        self.cursor.execute("SELECT totol_calories FROM user WHERE userid = ?", (userid,))
+        self.cursor.execute("SELECT total_calories FROM user WHERE userid = ?", (userid,))
         result = self.cursor.fetchone()
         return result[0] if result else None
     
