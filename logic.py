@@ -27,7 +27,7 @@ class DBManager:
         self.connection.commit()
 
     def get_calories(self, userid):
-        self.cursor.execute("SELECT total_calories FROM user WHERE userid = ?", (userid,))
+        self.cursor.execute("SELECT totol_calories FROM user WHERE userid = ?", (userid,))
         result = self.cursor.fetchone()
         return result[0] if result else None
     
